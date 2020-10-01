@@ -8,8 +8,7 @@ app.set("layout", "layouts/layout");
 app.use(expressLayouts);
 app.use(express.static("public"));
 
-app.get("/", (req, res)=>{
-    res.render("index");
-});
+const indexRouter = require("./routes/index");
+app.use("/", indexRouter);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
